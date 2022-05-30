@@ -7,7 +7,7 @@
   },
   "homepage": "https://HryhoriiAndriiets1974.github.io/chat-server",
   "scripts": {
-    "start": "nodemon",
+    "start": "node index.js",
     "server": "nodemon",
     "server:json": "json-server --watch server/bd.json --port 3000"
   },
