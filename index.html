@@ -28,9 +28,9 @@
         background: rgba(0, 0, 0, 0.15);
         padding: 0.25rem;
         position: fixed;
-        width: 50%;
+        width: 30%;
         top: 0;
-        left: 0;
+        right: 0;
         /* right: 0; */
         display: flex;
         height: 3rem;
@@ -101,7 +101,7 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        if (userName.value === '') return;
+        if (userName.value === '') return alert('Enter your name to continue !!!');
 
         if (input.value) {
           socket.emit(
