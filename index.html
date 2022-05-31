@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Private chat for my Family</title>
 
     <style>
       body {
@@ -81,6 +81,7 @@
   <body>
     <form action="" id="form-user">
       <input type="text" id="userName" placeholder="Enter your name to continue !!!" />
+      <h3 id="date-time">YYYY/MM/DD HH:MM:SS</h3>
     </form>
 
     <ul id="messages"></ul>
@@ -91,12 +92,25 @@
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
     <script>
       const socket = io();
+      let timerId = 0;
 
       const form = document.getElementById('form');
       const input = document.getElementById('input');
       const userName = document.getElementById('userName');
+      const dateTime = document.querySelector('#date-time');
+
+       const showTimer = () => {
+        dateTime.textContent = moment().format('YYYY MMM DD HH:mm:ss');
+       }
+
+      const startClock = () => {
+         timerId = setInterval(showTimer, 1000);
+         showTimer();
+      };
+      startClock();
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -118,7 +132,8 @@
       socket.on('chat message', function (msg) {
         const { message, userName } = JSON.parse(msg);
         const item = document.createElement('li');
-        item.textContent = `${userName.toUpperCase()}: ${message}`;
+        const timeChat = moment().format('HH:mm:ss')
+        item.textContent = `${userName.toUpperCase()}: ${timeChat} :${message}`;
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
