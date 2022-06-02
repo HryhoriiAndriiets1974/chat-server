@@ -28,11 +28,12 @@
         background: rgba(0, 0, 0, 0.15);
         padding: 0.25rem;
         position: fixed;
-        width: 30%;
+        width: 35%;
         top: 0;
         right: 0;
         /* right: 0; */
         display: flex;
+        align-items: center
         height: 3rem;
         box-sizing: border-box;
         backdrop-filter: blur(10px);
@@ -52,6 +53,12 @@
         border-radius: 2rem;
         margin: 0.25rem;
       }
+
+      h3 {
+        color: darkslateblue;
+        padding-left: 20px;
+      }
+
       #input:focus {
         outline: none;
       }
@@ -81,7 +88,7 @@
   <body>
     <form action="" id="form-user">
       <input type="text" id="userName" placeholder="Enter your name to continue !!!" />
-      <h3 id="date-time">YYYY/MM/DD HH:MM:SS</h3>
+      <h3 id="date-time"> YYYY/MM/DD  </h3>
     </form>
 
     <ul id="messages"></ul>
@@ -103,7 +110,7 @@
       const dateTime = document.querySelector('#date-time');
 
        const showTimer = () => {
-        dateTime.textContent = moment().format('YYYY MMM DD HH:mm:ss');
+        dateTime.textContent = moment().format('YYYY MMM DD ');
        }
 
       const startClock = () => {
