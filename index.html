@@ -110,14 +110,17 @@
       const dateTime = document.querySelector('#date-time');
 
        const showTimer = () => {
-        dateTime.textContent = moment().format('YYYY MMM DD ');
+        dateTime.textContent = moment().format('DD MMM YYYY');
+        // dateTime.textContent = moment().format('YYYY MMM DD HH:mm:ss');
        }
-
-      const startClock = () => {
-         timerId = setInterval(showTimer, 1000);
-         showTimer();
-      };
-      startClock();
+      //  --- if clock go ----- delete --- showTimer();
+       showTimer();
+      //  ------------------------------ clock go
+      // const startClock = () => {
+      //    timerId = setInterval(showTimer, 1000);
+      //    showTimer();
+      // };
+      // startClock();
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
